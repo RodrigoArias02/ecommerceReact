@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Signika+Negative:wght@700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#root {
+  width: 100%;
+}
+.app {
+  width: 100%;
+}
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
+body .header-product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: #569a4f;
+  font-family: "Montserrat", sans-serif;
+}
+body .header-product .heaeder-section-one {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+  color: white;
+  font-size: 1.3em;
+}
+body .header-product .heaeder-section-one span {
+  font-size: 0.6em;
+}
+body .header-product .heaeder-section-two {
+  display: flex;
+  width: 80%;
+  height: 30px;
+  border-radius: 5px;
+  background: white;
+}
+body .header-product .heaeder-section-two .div_input-section_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3em;
+  padding: 0px 5px;
+  color: #d8d3d9;
+}
+body .header-product .heaeder-section-two .div_input-section_text {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .header-product .heaeder-section-two .div_input-section_text input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  font-size: 1em;
+  color: #626062;
+}
+body .header-product .heaeder-section-two .div_input-section_submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 5px;
+}
+body .header-product .heaeder-section-two .div_input-section_submit input {
+  border-radius: 15px;
+  padding: 3px 5px;
+  background: #569a4f;
+  color: white;
+  border: 1px solid #569a4f;
+}
+body .header-product .heaeder-section-three {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 15px 0px;
+  color: white;
+  padding: 0px 5px;
+  overflow-x: auto; /* Habilita la barra de desplazamiento */
+  scrollbar-width: none; /* Oculta la barra de desplazamiento en navegadores compatibles */
+  -ms-overflow-style: none; /* Oculta la barra de desplazamiento en Internet Explorer y Microsoft Edge */
+}
+body .header-product .heaeder-section-three::-webkit-scrollbar {
+  display: none; /* Oculta la barra de desplazamiento en navegadores basados en WebKit, como Chrome y Safari */
+}
+body .header-product .heaeder-section-three .section-div_categories {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 100px;
+  height: min-content;
+  text-align: center;
+  font-size: 0.9em;
+  margin: 0px 10px;
+}
+body
+  .header-product
+  .heaeder-section-three
+  .section-div_categories
+  .clickable-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body
+  .header-product
+  .heaeder-section-three
+  .section-div_categories
+  .clickable-content
+  .div-section_photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 65px;
+  background-color: white;
+  border-radius: 8px;
+}
+body
+  .header-product
+  .heaeder-section-three
+  .section-div_categories
+  .clickable-content
+  .div-section_photo
+  img {
+  max-width: 100%; /* Ajusta el ancho máximo de la imagen al 100% del contenedor */
+  max-height: 100%; /* Ajusta la altura máxima de la imagen al 100% del contenedor */
+  object-fit: contain; /* Ajusta la imagen al contenedor manteniendo su relación de aspecto */
+}
