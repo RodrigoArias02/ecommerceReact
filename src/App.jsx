@@ -1,8 +1,8 @@
 // src/App.js
 import React from "react";
-import Headertop from "./components/header/headerTop";
-import Headermid from "./components/header/headerMid";
-import Headerbot from "./components/header/headerBot";
+import Headertop from "./components/NavBar/headerTop";
+import Headermid from "./components/NavBar/headerMid";
+import Headerbot from "./components/NavBar/headerBot";
 import ItemList from "./components/itemListContainer/itemList";
 
 function App() {

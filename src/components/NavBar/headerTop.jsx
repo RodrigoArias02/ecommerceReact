@@ -1,5 +1,5 @@
 import React from "react";
-import CartW from "../cart/cartWidget";
+import CartW from "../cartWidget/cartWidget";
 function Headertop() {
   return (
     <section className="heaeder-section-one">
