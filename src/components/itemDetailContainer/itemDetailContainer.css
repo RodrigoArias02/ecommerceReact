@@ -1,0 +1,9 @@
+.div_modal .conteiner-cards-fav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  justify-content: flex-start;
+  align-items: center;
+}

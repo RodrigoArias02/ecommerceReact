@@ -120,6 +120,16 @@ body
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-decoration: none;
+  color: white;
+}
+.textDecoration {
+  text-decoration: none;
+  color: white;
+}
+.activeOption {
+  transition: 0.5s;
+  transform: scale(0.97);
 }
 body
   .header-product
@@ -145,4 +155,224 @@ body
   max-width: 100%; /* Ajusta el ancho máximo de la imagen al 100% del contenedor */
   max-height: 100%; /* Ajusta la altura máxima de la imagen al 100% del contenedor */
   object-fit: contain; /* Ajusta la imagen al contenedor manteniendo su relación de aspecto */
+}
+
+body .section-div_conteinerCards {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+body .section-div_conteinerCards .section-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 170px;
+  height: 280px;
+  background: white;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.3);
+  margin: 10px 5px;
+  position: relative;
+}
+@media (max-width: 365px) {
+  body .section-div_conteinerCards .section-card {
+    width: 100%;
+    max-width: 230px;
+  }
+}
+body .section-div_conteinerCards .section-card .section-div_like {
+  position: absolute;
+  text-align: end;
+  padding: 5px 15px;
+  font-size: 1.6em;
+  width: 100%;
+}
+body .section-div_conteinerCards .section-card .section-div_like:active {
+  color: red;
+}
+body .section-div_conteinerCards .section-card .card-containerImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 150px;
+}
+body .section-div_conteinerCards .section-card .card-containerImg img {
+  max-width: 100%; /* Ajusta el ancho máximo de la imagen al 100% del contenedor */
+  max-height: 100%; /* Ajusta la altura máxima de la imagen al 100% del contenedor */
+  object-fit: contain; /* Ajusta la imagen al contenedor manteniendo su relación de aspecto */
+}
+body .section-div_conteinerCards .section-card .card-containerText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 15px;
+}
+body
+  .section-div_conteinerCards
+  .section-card
+  .card-containerText
+  .precioDescuento {
+  display: flex;
+}
+body
+  .section-div_conteinerCards
+  .section-card
+  .card-containerText
+  .precioDescuento
+  p:nth-child(1) {
+  font-size: 1.3em;
+  margin-right: 5px;
+}
+body
+  .section-div_conteinerCards
+  .section-card
+  .card-containerText
+  .precioDescuento
+  p:nth-child(2) {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  font-size: 1em;
+  color: #569a4f;
+}
+body
+  .section-div_conteinerCards
+  .section-card
+  .card-containerText
+  .nombreProducto {
+  padding: 3px 0px;
+  font-size: 1em;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  width: 100%;
+  height: min-content;
+  max-height: min-content;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+body
+  .section-div_conteinerCards
+  .section-card
+  .card-containerText
+  .precioAnterior {
+  font-size: 1em;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  letter-spacing: 1px;
+  font-weight: lighter;
+  text-decoration: line-through;
+  color: #b6b0b8;
+}
+body .section-div_conteinerCards .section-card .card-containerText .send {
+  display: flex;
+  color: #5db352;
+}
+body .section-div_conteinerCards .section-card .card-containerText .send i {
+  font-size: 1.4em;
+}
+body .section-div_conteinerCards .section-card .card-containerText .send p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 2px;
+  font-size: 0.9em;
+}
+body
+  .section-div_conteinerCards
+  .section-card
+  .card-containerText
+  .send
+  p:nth-child(1) {
+  font-size: 0.8em;
+}
+body
+  .section-div_conteinerCards
+  .section-card
+  .card-containerText
+  .send
+  p:nth-child(3) {
+  font-size: 0.8em;
+  color: #5db352;
+  font-family: "Poppins", "sans-serif";
+  font-weight: bolder;
+  font-style: italic;
+}
+body .section-div_conteinerCards .section-card .card-containerButtons {
+  width: 100%;
+}
+body .section-div_conteinerCards .section-card .card-containerButtons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+body .section-div_conteinerCards .section-card .card-containerButtons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+}
+body
+  .section-div_conteinerCards
+  .section-card
+  .card-containerButtons
+  a:nth-child(1) {
+  background: #5db352;
+  width: 70%;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 1em;
+}
+body .section-div_conteinerCards .section-card .card-containerButtons a {
+  text-decoration: none;
+}
+body
+  .section-div_conteinerCards
+  .section-card
+  .card-containerButtons
+  a:nth-child(2) {
+  width: 20%;
+  font-size: 1.8em;
+  background: white;
+}
+body
+  .section-div_conteinerCards
+  .section-card
+  .card-containerButtons
+  a:nth-child(2)
+  i {
+  font-weight: 1000;
+  color: black;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 3px solid #569a4f;
+  border-right: 3px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
