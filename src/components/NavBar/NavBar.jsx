@@ -10,7 +10,10 @@ const NavBar = () => {
 
   useEffect(() => {
     const segments = pathname.split("/");
-    const penultimate = segments[segments.length - 2];
+    let penultimate = segments[segments.length - 2];
+    if (penultimate === "") {
+      penultimate = segments[segments.length - 1];
+    }
     setPenultimateSegment(penultimate);
   }, [pathname]);
 

@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
 import ItemDetail from "../itemDetail/ItemDetail";
-import { getProductById } from "../../asyncMock";
 import { useParams } from "react-router-dom";
+import { db } from "../../service/firebase/firebaseConfig";
+import { getDoc, doc, DocumentSnapshot } from "firebase/firestore";
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const { itemId } = useParams();
   const { categoryId } = useParams();
   useEffect(() => {
-    getProductById(itemId, categoryId)
-      .then((response) => {
-        if (response) {
-          setProduct(response);
-        } else {
-          console.error("Producto no encontrado");
-        }
+    const productRef = doc(db, "productos", itemId);
+    getDoc(productRef)
+      .then((documentSnapshot) => {
+        const campos = documentSnapshot.data();
+        const productAdapted = { id: documentSnapshot.id, ...campos };
+        setProduct(productAdapted);
       })
       .catch((error) => {
         console.error("Error al obtener el producto:", error);

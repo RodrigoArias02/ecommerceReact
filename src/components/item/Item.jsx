@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-const Item = ({ id, price, thumbnail, title, category_id }) => {
-  const off = price > 80000 && price < 100000 ? 5 : price > 100000 ? 13 : "";
+const Item = ({ id, precio, imgUrl, nombre, categoria }) => {
+  const off = precio > 80000 && precio < 100000 ? 5 : precio > 100000 ? 13 : "";
   let offC = "";
   const { categoryId } = useParams();
 
+  const precioSinEntero = Math.floor(precio);
   let precioD = 0;
   return (
     <>
@@ -13,18 +14,18 @@ const Item = ({ id, price, thumbnail, title, category_id }) => {
           <i className="bx bxs-heart"></i>
         </div>
         <div className="card-containerImg">
-          <img src={thumbnail} alt="" />
+          <img src={imgUrl} alt="" />
         </div>
         <article className="card-containerText">
-          <p className="nombreProducto">{title}</p>
+          <p className="nombreProducto">{nombre}</p>
           <span className="precioDescuento">
-            <p>${price}</p>
+            <p>${precioSinEntero}</p>
             <p>{(offC = off !== "" ? "%" + off : "")}</p>
           </span>
           <p className="precioAnterior">
             {
               (precioD =
-                off !== "" ? "$" + (price * (1 - off / 100)).toFixed(0) : "")
+                off !== "" ? "$" + (precio * (1 - off / 100)).toFixed(0) : "")
             }
           </p>
         </article>
@@ -32,7 +33,7 @@ const Item = ({ id, price, thumbnail, title, category_id }) => {
           <Link
             to={
               categoryId === undefined
-                ? `category/procesadores/item/${id}`
+                ? `category/${categoria}/item/${id}`
                 : `./item/${id}`
             }
           >

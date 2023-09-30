@@ -33,6 +33,9 @@
   font-size: 1.7em;
   font-weight: 700;
 }
+.body-object .body-article .stock {
+  font-size: 0.8em;
+}
 .body-object .body-article span {
   display: flex;
 }

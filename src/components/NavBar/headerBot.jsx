@@ -35,7 +35,7 @@ function Headerbot() {
       </div>
       <div className="section-div_categories">
         <NavLink
-          to={"category/memoriasram"}
+          to={"category/memoriaRam"}
           className={({ isActive }) =>
             isActive ? "clickable-content activeOption" : "clickable-content "
           }

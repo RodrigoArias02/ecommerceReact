@@ -1,0 +1,47 @@
+.footerCart {
+  width: 100%;
+  height: min-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  position: fixed;
+  background-color: white;
+}
+.footerCart a {
+  background: #3e76d3;
+  padding: 10px;
+  font-size: 1.3em;
+  font-weight: 600;
+  width: 85%;
+  border: 0px;
+  margin-top: 15px;
+  border-radius: 5px;
+  color: white;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  letter-spacing: 1px;
+}
+.footer-text {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0px 7px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.footer-text section {
+  display: flex;
+  flex-direction: column;
+}
+.footer-text section:last-child {
+  text-align: end;
+}
+.footer-text section .bold {
+  font-weight: 600;
+  font-size: 1.2em;
+}
