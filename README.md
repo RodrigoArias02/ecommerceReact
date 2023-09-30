@@ -55,4 +55,4 @@ Antes de ejecutar la aplicación en tu máquina local, asegúrate de tener insta
 1. Clona este repositorio en tu máquina local:
 
    ```bash
-   git clone https://github.com/tu-nombre-de-usuario/aplicacion-ecommerce.git
+   git clone https://github.com/RodrigoArias02/ecommerceReact.git
