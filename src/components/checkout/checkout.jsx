@@ -27,11 +27,12 @@ const isNameValid = (name) => {
 export const Checkout = () => {
   const { register, handleSubmit, formState } = useForm();
   const { cart, totalPrecio, clearCart } = useContext(CartContext);
-  cart.length==0? window.location.href = "/" : null
+  // cart.length==0? window.location.href = "/" : null
   const [orderId, setOrderId] = useState(null);  
 
   const onSubmit = async (data) => {
     // La variable "data" contiene los datos del formulario
+    alert("En breves aparecera un boton para que pueda ver el ticket");
     const resultado = totalPrecio();
     const precioTotal = resultado.sumaDePrecios;
     const envioTotal = resultado.sumaDeEnvios;
@@ -84,7 +85,8 @@ export const Checkout = () => {
 
           const { id } = await addDoc(orderRef, objOrder);
           setOrderId(id);
-          window.location.href = ` /order/${id}` 
+      
+   
           batch.commit();
           clearCart();
           alert("comprado con exito");
@@ -134,8 +136,9 @@ export const Checkout = () => {
       </div>
       <textarea cols="30" rows="10" placeholder="Tu mensaje"></textarea>
       <button type="submit"  className="main--btn_submit" disabled={!formState.isValid}>Redirigir a la orden</button>
- 
+     
     </form>
+    {orderId && <Link to={`/order/${orderId}`}>  Ver Ticket</Link>}
   </section>
   </main> 
   );
