@@ -1,14 +1,14 @@
 import "./cartItem.css";
 import { useContext } from "react";
 import { CartContext } from "../../context/cartContext";
-const CartItem = ({ id, precio, quantity, nombre, imgUrl }) => {
+const CartItem = ({ id, precio, quantity, nombre, imgUrl,vendedor }) => {
   const { removeItem } = useContext(CartContext);
   let suma = precio * quantity;
   let precioSinEntero = 0;
   return (
     <article className="card-cart">
       <section className="cart-top">
-        <p>Vendedor</p>
+        <p>{vendedor}</p>
       </section>
       <section className="cart-mid">
         <div className="conteiner-img-cart">

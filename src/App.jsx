@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CartProvider } from "./context/cartContext";
 import CartContainer from "./components/cartContainer/Cart";
 import { Checkout } from "./components/checkout/checkout";
+import FinCheckout from "./components/finCheckout/FinCheckout";
 import { NotificationProvider } from "./notification/NotificationService";
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
               ></Route>
               <Route path="cart" element={<CartContainer />}></Route>
               <Route path="checkout" element={<Checkout />}></Route>
+              <Route path="order/:idOrder" element={<FinCheckout />}></Route>
               <Route path="*" element={<h1>Not Found</h1>}></Route>
             </Routes>
           </CartProvider>

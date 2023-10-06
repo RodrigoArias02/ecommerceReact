@@ -19,14 +19,15 @@ const Item = ({ id, precio, imgUrl, nombre, categoria }) => {
         <article className="card-containerText">
           <p className="nombreProducto">{nombre}</p>
           <span className="precioDescuento">
-            <p>${precioSinEntero}</p>
-            <p>{(offC = off !== "" ? "%" + off : "")}</p>
-          </span>
-          <p className="precioAnterior">
+            <p>
             {
               (precioD =
-                off !== "" ? "$" + (precio * (1 - off / 100)).toFixed(0) : "")
-            }
+                off !== "" ? "$" + (precio * (1 - off / 100)).toFixed(0) : precioSinEntero)
+            }</p>
+            <p>{(offC = off !== "" ? "%" + off : "")}</p>
+          </span>
+          <p className="precioAnterior">{precioD =
+                off !== "" ? "$" + precioSinEntero : ""}
           </p>
         </article>
         <section className="card-containerButtons">
@@ -39,7 +40,7 @@ const Item = ({ id, precio, imgUrl, nombre, categoria }) => {
           >
             Ver mas
           </Link>
-          <a href="">
+          <a href="#">
             <i className="bx bx-plus"></i>
           </a>
         </section>

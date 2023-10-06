@@ -4,10 +4,10 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/cartContext";
 import { useNotification } from "../../notification/NotificationService";
-const ItemDetail = ({ id, precio, imgUrl, nombre, stock, imgDetalle }) => {
+const ItemDetail = ({ id, precio, imgUrl, nombre, stock, vendedor }) => {
   const [inputType, setInputType] = useState("button");
   const [quantityAdded, setQuantityAdded] = useState(0);
-
+  let precioD=0;
   const ItemContador = inputType === "input" ? InputCount : ItemCount;
   const { addItem } = useContext(CartContext);
   const { setNotification } = useNotification();
@@ -18,11 +18,13 @@ const ItemDetail = ({ id, precio, imgUrl, nombre, stock, imgDetalle }) => {
       nombre,
       precio,
       imgUrl,
+      vendedor,
     };
     addItem(item, quantity);
     setNotification("error", `${nombre}`);
   };
   const precioEntero = Math.floor(precio);
+  const off = precio > 80000 && precio < 100000 ? 5 : precio > 100000 ? 13 : "";
   return (
     <>
       <section className="object-img">
@@ -35,10 +37,14 @@ const ItemDetail = ({ id, precio, imgUrl, nombre, stock, imgDetalle }) => {
           <b className="stock">stock disponible: {stock}</b>
           <p className="title">{nombre}</p>
           <span>
-            <p>{precioEntero}</p>
-            <p>{precioEntero}</p>
+            <p> {
+              (precioD =
+                off !== "" ? "$" + (precio * (1 - off / 100)).toFixed(0) : precioEntero)
+            }</p>
+            <p className="off">{precioD!=0 ? precioEntero : ""}</p>
+            
           </span>
-          <p className="off">%55</p>
+       
         </article>
         <article className="body-article_buttons">
           <p className="p" id="descripcion">

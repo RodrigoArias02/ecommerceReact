@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { CartContext } from "../../context/cartContext";
+import "./checkout.css";
 import {
   collection,
   query,
@@ -25,6 +27,8 @@ const isNameValid = (name) => {
 export const Checkout = () => {
   const { register, handleSubmit, formState } = useForm();
   const { cart, totalPrecio, clearCart } = useContext(CartContext);
+  cart.length==0? window.location.href = "/" : null
+  const [orderId, setOrderId] = useState(null);  
 
   const onSubmit = async (data) => {
     // La variable "data" contiene los datos del formulario
@@ -78,37 +82,61 @@ export const Checkout = () => {
         if (outOfStock.length === 0) {
           const orderRef = collection(db, "orders");
 
-          const { id: orderId } = await addDoc(orderRef, objOrder);
-
+          const { id } = await addDoc(orderRef, objOrder);
+          setOrderId(id);
+          window.location.href = ` /order/${id}` 
           batch.commit();
           clearCart();
           alert("comprado con exito");
-          window.location.href = "/";
+         
         } else {
           alert("no hay productos");
         }
       }
     }
   };
-
+  const Cards = cart.map((item, index) => (
+    <div className="card" key={index}>
+      <img src={item.imgUrl} alt="" />
+      <h2>{item.nombre}</h2>
+      <p>Cantidad: {item.quantity}</p>
+      <p>Precio: {item.precio}</p>
+      
+    </div>
+  ));
+  
   return (
+  <main className="main_contact">
+    {Cards}
+  <section className="main_contact--section" id="contact">
+    <h2 className="heading">
+      Check
+      <span>Out!</span>
+    </h2>
     <form onSubmit={handleSubmit((data) => onSubmit(data))}>
+      <div className="main--input_box">
       <input
-        {...register("nombre", { required: true })}
-        placeholder="Nombre y apellido"
-      />
+          {...register("nombre", { required: true })}
+          placeholder="Nombre y apellido"
+        />
+
+            <input
+          type="number"
+          {...register("telefono", { required: true })}
+          placeholder="Telefono"
+        />
+      </div>
+      <div className="main--input_box">
       <input
-        type="number"
-        {...register("telefono", { required: true })}
-        placeholder="Telefono"
-      />
-      <input
-        {...register("email", { required: true })}
-        placeholder="Correo electrónico"
-      />
-      <button type="submit" disabled={!formState.isValid}>
-        Enviar
-      </button>
+          {...register("email", { required: true })}
+          placeholder="Correo electrónico"
+        />
+      </div>
+      <textarea cols="30" rows="10" placeholder="Tu mensaje"></textarea>
+      <button type="submit"  className="main--btn_submit" disabled={!formState.isValid}>Redirigir a la orden</button>
+ 
     </form>
+  </section>
+  </main> 
   );
 };
