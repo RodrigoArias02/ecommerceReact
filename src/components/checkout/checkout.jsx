@@ -102,7 +102,7 @@ export const Checkout = () => {
       <img src={item.imgUrl} alt="" />
       <h2>{item.nombre}</h2>
       <p>Cantidad: {item.quantity}</p>
-      <p>Precio: {item.precio}</p>
+      <p>Precio x 1: {item.precio}</p>
       
     </div>
   ));

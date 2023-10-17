@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../../context/cartContext";
 const Item = ({ id, precio, imgUrl, nombre, categoria }) => {
+  const { precioDescuento } = useContext(CartContext);
   const off = precio > 80000 && precio < 100000 ? 5 : precio > 100000 ? 13 : "";
   let offC = "";
   const { categoryId } = useParams();
@@ -21,8 +24,7 @@ const Item = ({ id, precio, imgUrl, nombre, categoria }) => {
           <span className="precioDescuento">
             <p>
             {
-              (precioD =
-                off !== "" ? "$" + (precio * (1 - off / 100)).toFixed(0) : precioSinEntero)
+              precioDescuento(precio)
             }</p>
             <p>{(offC = off !== "" ? "%" + off : "")}</p>
           </span>

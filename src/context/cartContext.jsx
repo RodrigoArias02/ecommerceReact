@@ -52,6 +52,15 @@ export const CartProvider = ({ children }) => {
       sumaDeEnvios,
     };
   };
+
+  function precioDescuento(precio){
+    let precioD=0
+    const off = precio > 80000 && precio < 100000 ? 5 : precio > 100000 ? 13 : "";
+     precioD =
+      off !== "" ? (precio * (1 - off / 100)).toFixed(0) : precio
+      const precioSinEntero =  Math.floor(precioD);
+      return precioSinEntero
+  }
   return (
     <CartContext.Provider
       value={{
@@ -61,6 +70,7 @@ export const CartProvider = ({ children }) => {
         clearCart,
         totalQuantity,
         totalPrecio,
+        precioDescuento,
       }}
     >
       {children}

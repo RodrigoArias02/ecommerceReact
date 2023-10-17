@@ -7,24 +7,23 @@ import { useNotification } from "../../notification/NotificationService";
 const ItemDetail = ({ id, precio, imgUrl, nombre, stock, vendedor }) => {
   const [inputType, setInputType] = useState("button");
   const [quantityAdded, setQuantityAdded] = useState(0);
-  let precioD=0;
   const ItemContador = inputType === "input" ? InputCount : ItemCount;
-  const { addItem } = useContext(CartContext);
+  const { addItem, precioDescuento } = useContext(CartContext);
   const { setNotification } = useNotification();
+  let precioD=precioDescuento(precio);
   const handleOnAdd = (quantity) => {
     setQuantityAdded(quantity);
     const item = {
       id,
       nombre,
-      precio,
+      precio:precioD,
       imgUrl,
       vendedor,
     };
+
     addItem(item, quantity);
     setNotification("error", `${nombre}`);
   };
-  const precioEntero = Math.floor(precio);
-  const off = precio > 80000 && precio < 100000 ? 5 : precio > 100000 ? 13 : "";
   return (
     <>
       <section className="object-img">
@@ -38,10 +37,9 @@ const ItemDetail = ({ id, precio, imgUrl, nombre, stock, vendedor }) => {
           <p className="title">{nombre}</p>
           <span>
             <p> {
-              (precioD =
-                off !== "" ? "$" + (precio * (1 - off / 100)).toFixed(0) : precioEntero)
+              precioD
             }</p>
-            <p className="off">{precioD!=0 ? precioEntero : ""}</p>
+            <p className="off">{precioD!=0 ? precio : ""}</p>
             
           </span>
        
@@ -69,7 +67,7 @@ const ItemDetail = ({ id, precio, imgUrl, nombre, stock, vendedor }) => {
               </article>
               <article className="article-relacionados_text">
                 <p>{nombre}</p>
-                <p>{precioEntero}</p>
+                <p>{precioD}</p>
               </article>
             </div>
             <div className="card-relacionados">
@@ -78,7 +76,7 @@ const ItemDetail = ({ id, precio, imgUrl, nombre, stock, vendedor }) => {
               </article>
               <article className="article-relacionados_text">
                 <p>{nombre}</p>
-                <p>{precioEntero}</p>
+                <p>{precioD}</p>
               </article>
             </div>
           </section>
