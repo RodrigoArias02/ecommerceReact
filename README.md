@@ -1,4 +1,4 @@
-# README - Aplicación de Ecommerce con React, Vite, Firestore, react-router-dom y react-hook-form
+# Aplicación de Ecommerce con React, Vite, Firestore, react-router-dom y react-hook-form
 
 ## Resumen
 
